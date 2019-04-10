@@ -21,7 +21,7 @@ module.exports = class Bundler {
   constructor (identifier) {
     this.identifier = identifier
     this.tasks = []
-    this.enableEslint = false
+    this.enableVersionning = true
   }
 
   /**
@@ -80,9 +80,17 @@ module.exports = class Bundler {
       }
     })
 
-    if (this.enableEslint === true) {
-      encore.enableEslintLoader()
+    if (this.enableVersionning === true && encore.isProduction()) {
+      encore.enableVersioning(true)
+      encore.configureFilenames({
+        js: '[name].[contenthash].js',
+        css: '[name].[contenthash].css',
+        images: 'images/[name].[ext]',
+        fonts: 'fonts/[name].[ext]'
+      })
     }
+
+    encore.enableEslintLoader()
 
     const config = encore.getWebpackConfig()
     config.name = this.identifier

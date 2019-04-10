@@ -21,7 +21,6 @@
     "src"
   ],
   "devDependencies": {
-    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
@@ -29,6 +28,13 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "@symfony/webpack-encore": "^0.26.0"
+    "@babel/preset-react": "^7.0.0",
+    "@symfony/webpack-encore": "^0.26.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "less-loader": "^4.1.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.0.1"
   }
 }
