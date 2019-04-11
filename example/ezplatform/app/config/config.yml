@@ -1,0 +1,5 @@
+# Webpack Encore Configuration
+webpack_encore:
+  output_path: "%kernel.project_dir%/web/assets/build"
+  builds:
+    theme1: "%kernel.project_dir%/web/themes/theme1"

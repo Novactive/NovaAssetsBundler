@@ -1,0 +1,25 @@
+{
+  "name": "@<client>/<project>",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "@novactive/assets-bundler": "git+https://d8574dac40083b427560af476738a3ad5232dbc1:x-oauth-basic@github.com/Novactive/NovaAssetsBundler.git#semver:^1.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "build-assets": "encore",
+    "js-lint": "eslint 'assets/**/*.+(js|jsx)'",
+    "style-lint": "stylelint 'assets/**/*.+(scss|less|css)'",
+    "js-fix-cs": "eslint --fix 'assets/**/*.+(js|jsx)'",
+    "style-fix-cs": "stylelint --fix 'assets/**/*.+(scss|less|css)'"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+  },
+  "globals": {
+    "$": true,
+    "ATInternet": true,
+    "jQuery": true,
+    "Xiti": true,
+    "Translator": true,
+    "XRegExp": true,
+    "allowDomain": true,
+    "linkColor": true,
+    "msgIframeAccess":  true,
+    "reversoURL": true,
+    "rubrique":  true,
+    "translations": true,
+    "addthis_config":  true
+  }
+}
