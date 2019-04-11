@@ -53,8 +53,17 @@ module.exports = class Bundler {
    * @param {Encore} encore
    * @return {*}
    */
+  getConfigHook (encore) {
+
+  }
+
+  /**
+   * @param {Encore} encore
+   * @return {*}
+   */
   getConfig (encore) {
     encore.reset()
+    this.getConfigHook(encore)
 
     const publicPath = `/assets/themes/${this.identifier}`
     const outputDir = path.resolve(`./web/${publicPath}`)
@@ -90,7 +99,9 @@ module.exports = class Bundler {
       })
     }
 
-    encore.enableEslintLoader()
+    encore.enableEslintLoader((options) => {
+      options.failOnError = true
+    })
 
     const config = encore.getWebpackConfig()
     config.name = this.identifier
