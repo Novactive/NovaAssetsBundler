@@ -99,6 +99,10 @@ module.exports = class Bundler {
       })
     }
 
+    encore.configureBabel((babelConfig) => {
+      babelConfig.plugins.push('@babel/plugin-proposal-class-properties')
+    })
+
     encore.enableEslintLoader((options) => {
       options.failOnError = true
     })
