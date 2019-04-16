@@ -88,6 +88,7 @@ module.exports = class Bundler {
         }
       }
     })
+    encore.enablePostCssLoader()
 
     if (this.enableVersionning === true && encore.isProduction()) {
       encore.enableVersioning(true)
