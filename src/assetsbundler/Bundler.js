@@ -58,6 +58,21 @@ module.exports = class Bundler {
   }
 
   /**
+   * @returns {string}
+   */
+  getPublicPath () {
+    return `/assets/themes/${this.identifier}`
+  }
+
+  /**
+   * @param publicPath
+   * @returns {string}
+   */
+  getOutputDir (publicPath) {
+    return path.resolve(`./web/${publicPath}`)
+  }
+
+  /**
    * @param {Encore} encore
    * @return {*}
    */
@@ -65,9 +80,8 @@ module.exports = class Bundler {
     encore.reset()
     this.getConfigHook(encore)
 
-    const publicPath = `/assets/themes/${this.identifier}`
-    const outputDir = path.resolve(`./web/${publicPath}`)
-
+    const publicPath = this.getPublicPath()
+    const outputDir = this.getOutputDir(publicPath)
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true })
     }
