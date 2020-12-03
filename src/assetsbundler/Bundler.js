@@ -58,6 +58,14 @@ module.exports = class Bundler {
   }
 
   /**
+   * @param {Encore} encore
+   * @return {*}
+   */
+  alterConfigHook (encore) {
+
+  }
+
+  /**
    * @returns {string}
    */
   getPublicPath () {
@@ -121,6 +129,8 @@ module.exports = class Bundler {
     encore.enableEslintLoader((options) => {
       options.failOnError = true
     })
+
+    this.alterConfigHook(encore)
 
     const config = encore.getWebpackConfig()
     config.name = this.identifier
