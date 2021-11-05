@@ -14,12 +14,14 @@ const Encore = require('@symfony/webpack-encore')
 
 module.exports = class ConfigurationGenerator {
   /**
+   * @param {Array<string>} bundlerPaths
+   * @param {Encore} encore
    * @return {Array}
    */
-  getConfigs (bundlerPaths) {
+  getConfigs (bundlerPaths, encore) {
     const configs = []
     for (const bundlerPath of bundlerPaths) {
-      configs.push(this.getBundlerConfig(bundlerPath))
+      configs.push(this.getBundlerConfig(bundlerPath, encore))
     }
 
     return configs
@@ -27,10 +29,11 @@ module.exports = class ConfigurationGenerator {
 
   /**
    * @param {string} bundlerPath
+   * @param {Encore} encore
    * @return {Object}
    */
-  getBundlerConfig (bundlerPath) {
+  getBundlerConfig (bundlerPath, encore) {
     const bundler = require(`${bundlerPath}`)
-    return bundler.getConfig(Encore)
+    return bundler.getConfig(encore)
   }
 }
